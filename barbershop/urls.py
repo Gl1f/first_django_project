@@ -1,5 +1,5 @@
 """
-URL configuration for barbersgop project.
+URL configuration for barbershop project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
@@ -16,7 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.landing, name='landing'),
+    path('thanks/', views.thanks, name='thanks'),
+    path('orders/', views.orders_list, name='orders_list'),
+    path('orders/<int:order_id>/', views.order_detail, name='order_detail')
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
