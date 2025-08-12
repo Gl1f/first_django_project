@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'barbersgop.urls'
+ROOT_URLCONF = 'barbershop.urls'
 
 TEMPLATES = [
     {
@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'barbersgop.wsgi.application'
+WSGI_APPLICATION = 'barbershop.wsgi.application'
 
 
 # Database
