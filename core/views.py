@@ -18,12 +18,6 @@ def thanks(request):
     return render(request, 'core/thanks.html', context)
 
 def orders_list(request):
-    all_orders = []
-    for order in orders:
-        master_name = next((master['name'] for master in masters if master['id'] == order['master_id']), 'Неизвестный мастер')
-        order_info = order.copy()
-        order_info['master_name'] = master_name
-        all_orders.append(order_info)
     context = {'orders': all_orders}
     return render(request, 'core/orders_list.html', context)
 
