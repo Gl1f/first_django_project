@@ -1,0 +1,20 @@
+{% extends "landing.html" %}
+{% block title %}Подробности о заказе{% endblock title %}
+
+{% block content %}
+  <section class="order-detail-section">
+    <h1 class="order-detail-title">Подробности о заказе</h1>
+    <div class="order-info">
+      <p><strong>Имя клиента:</strong> {{ order.client_name }}</p>
+      <p><strong>Услуги:</strong></p>
+      <ul>
+        {% for service in order.services %}
+          <li>{{ service }}</li>
+        {% endfor %}
+      </ul>
+      <p><strong>Статус:</strong> {{ order.status }}</p>
+      <p><strong>Дата и время:</strong> {{ order.date }}</p>
+    </div>
+    <a class="btn btn-primary" href="{% url 'orders_list' %}">Вернуться к списку заявок</a>
+  </section>
+{% endblock content %}

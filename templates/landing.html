@@ -1,0 +1,65 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <script src="{% static 'js/main.js' %}" defer></script>
+
+  <title>{% block title %}Барбершоп{% endblock %}</title>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="{% url 'landing' %}">Барбершоп</a>
+
+      <nav class="nav">
+        <a class="nav-link" href="{% url 'landing' %}">Главная</a>
+        <a class="nav-link" href="{% url 'orders_list' %}">Заявки</a>
+        <a class="nav-link" href="{% url 'thanks' %}">Спасибо</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}
+      <section class="hero">
+        <h1 class="hero-title">Барбершоп “Арбуз”</h1>
+        <p class="hero-subtitle">
+          TODO: 1–2 предложения — чем круты (стрижём, бреем, поднимаем настроение).
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="{% url 'orders_list' %}" id="ctaOrders">
+            Перейти к заявкам
+          </a>
+          <a class="btn btn-ghost" href="{% url 'thanks' %}">
+            Страница “Спасибо”
+          </a>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">Почему мы?</h2>
+          <ul class="list">
+            <li>TODO: быстрые записи</li>
+            <li>TODO: мастера — топ</li>
+            <li>TODO: кофе/чай/мемы</li>
+          </ul>
+        </div>
+      </section>
+    {% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <small>© {% now "Y" %} Барбершоп. Все права на бороды защищены.</small>
+      {% block footer %}{% endblock %}
+    </div>
+  </footer>
+</body>
+</html>

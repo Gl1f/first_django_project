@@ -1,0 +1,35 @@
+{% extends "landing.html" %}
+
+{% block title %}Список заявок{% endblock title %}
+
+{% block content %}
+  <section class="orders-section">
+    <h1 class="orders-title">Список заявок</h1>
+    <table class="orders-table">
+      <thead>
+        <tr>
+          <th>Имя клиента</th>
+          <th>Услуга</th>
+          <th>Статус</th>
+          <th>Подробности</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in orders %}
+        {%for service in order.services%}
+          <tr>
+            <td>{{ order.client_name }}</td>
+            <td>{{ service }}</td>
+            <td>{{ order.status }}</td>
+            <td><a href="{% url 'order_detail' order.id %}">Подробнее</a></td>
+          </tr>
+        {% endfor %}
+        {% empty %}
+          <tr>
+            <td colspan="5">Нет заявок.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+{% endblock content %}

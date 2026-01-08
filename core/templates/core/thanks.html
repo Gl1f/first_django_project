@@ -1,0 +1,12 @@
+{% extends "landing.html" %}
+{% block title %}Спасибо за заявку!{% endblock %}
+
+{% block content %}
+  <section class="thanks-section">
+    <h1 class="thanks-title">Спасибо за вашу заявку!</h1>
+    <p class="thanks-message">
+      {{ message }}
+    </p>
+    <a class="btn btn-primary" href="{% url 'landing' %}">Вернуться на главную</a>
+  </section>
+{% endblock %}
